@@ -1,6 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 function App() {
   return (
@@ -23,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, null)(App);
