@@ -1,68 +1,84 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Trivia Gamemaster
 
-## Available Scripts
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-In the project directory, you can run:
 
-### `npm start`
+![logo](filepath)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [Brief Description](#brief-description)
+- [How to use](#how-to-use)
+- [Installation](#installation)
+- [Functionality](#functionality)
+- [Contributing](#contributing)
+- [Acknowledgements and Resources](#acknowledgements-and-resources)
 
-### `npm test`
+<!-- Brief Description -->
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Brief Description
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to use
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Built With
 
-### `npm run eject`
+- React 16
+- Redux 4
+- CSS
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Fork this repository:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+https://github.com/relyt4me/stretch-project
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Clone your forked repository**
 
-## Learn More
+`git clone` and the copied URL
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Change into the directory and install the project dependencies**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`cd` into directory and run `npm install` for dependencies
 
-### Code Splitting
+### How to see the product
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+In terminal, go to the project directory and run 'npm start' to open the project in the browser. Have fun creating a trivia game!
 
-### Analyzing the Bundle Size
+### Live version
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+[text](link)
 
-### Making a Progressive Web App
+## Functionality
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Searching for an ingredient to get a list and selecting one for the recipe  
+![alt text](filepath)
 
-### Advanced Configuration
+## Authors
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+👤 **Taryn Martin**
+- Github: [tarynmartin](https://github.com/tarynmartin)
+- LinkedIn: [Taryn](https://www.linkedin.com/in/tarynmartin919/)
 
-### Deployment
+## Acknowledgements and Resources
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+[Original Project Link](https://frontend.turing.io/projects/module-3/binary-challenge.html)
 
-### `npm run build` fails to minify
+[Heather Faerber](https://github.com/hfaerber) for providing help and feedback.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Trivia Question Database](https://www.thecocktaildb.com/api.php) API used to retrieve trivia questions.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/relyt4me/stretch-project.svg?style=flat-square
+[contributors-url]: https://github.com/relyt4me/stretch-project/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/relyt4me/stretch-project.svg?style=flat-square
+[forks-url]: https://github.com/relyt4me/stretch-project/network/members
+[stars-shield]: https://img.shields.io/github/stars/relyt4me/stretch-project.svg?style=flat-square
+[stars-url]: https://github.com/relyt4me/stretch-project/stargazers
+[issues-shield]: https://img.shields.io/github/issues/relyt4me/stretch-project.svg?style=flat-square
+[issues-url]: https://github.com/relyt4me/stretch-project/issues
