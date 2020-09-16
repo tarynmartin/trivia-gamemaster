@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from '../../logo.svg';
 import './App.css';
+import Header from '../Header/Header';
+import Results from '../Results/Results';
+import Game from '../Game/Game';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello world!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello world!</h1>
+      <Header />
+      <Game />
+      <Results />
     </div>
   );
 }
