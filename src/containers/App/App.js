@@ -1,6 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 function App() {
   return (
@@ -8,7 +10,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello world!
         </p>
         <a
           className="App-link"
@@ -23,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, null)(App);
