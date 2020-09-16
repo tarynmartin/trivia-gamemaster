@@ -74,11 +74,11 @@ In terminal, go to the project directory and run 'npm start' to open the project
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/relyt4me/stretch-project.svg?style=flat-square
-[contributors-url]: https://github.com/relyt4me/stretch-project/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/relyt4me/stretch-project.svg?style=flat-square
-[forks-url]: https://github.com/relyt4me/stretch-project/network/members
-[stars-shield]: https://img.shields.io/github/stars/relyt4me/stretch-project.svg?style=flat-square
-[stars-url]: https://github.com/relyt4me/stretch-project/stargazers
-[issues-shield]: https://img.shields.io/github/issues/relyt4me/stretch-project.svg?style=flat-square
-[issues-url]: https://github.com/relyt4me/stretch-project/issues
+[contributors-shield]: https://img.shields.io/github/contributors/tarynmartin/trivia-gamemaster.svg?style=flat-square
+[contributors-url]: https://github.com/tarynmartin/trivia-gamemaster/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/tarynmartin/trivia-gamemaster.svg?style=flat-square
+[forks-url]: https://github.com/tarynmartin/trivia-gamemaster/network/members
+[stars-shield]: https://img.shields.io/github/stars/tarynmartin/trivia-gamemaster.svg?style=flat-square
+[stars-url]: https://github.com/tarynmartin/trivia-gamemaster/stargazers
+[issues-shield]: https://img.shields.io/github/issues/tarynmartin/trivia-gamemaster.svg?style=flat-square
+[issues-url]: https://github.com/tarynmartin/trivia-gamemaster/issues
