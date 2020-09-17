@@ -1,3 +1,10 @@
+export const updateQuestions = (questions) => {
+  return {
+    type: 'UPDATE_QUESTIONS',
+    questions
+  }
+}
+
 export const createError = (error) => {
   return {
     type: 'ERRORED',
