@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const TriviaCard = () => {
   return (
-    <h2>These will be the cards</h2>
+    <h2 className='card'>These will be the cards</h2>
   )
 }
 
