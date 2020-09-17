@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const Header = () => {
   return (
-    <h2>This is the header</h2>
+    <h2 className='header'>This is the header</h2>
   )
 }
 
