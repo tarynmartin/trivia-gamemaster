@@ -42,7 +42,6 @@ ol {
 .incorrect {
   margin-top: 0;
   padding-top: 0;
-  /* overflow-wrap: break-word; */
 }
 
 .correct {
