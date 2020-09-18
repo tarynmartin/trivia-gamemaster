@@ -1,0 +1,50 @@
+.game-card {
+  background-color: grey;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  overflow-wrap: anywhere;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px 1px black;
+}
+
+.remove-question {
+  height: 2.5em;
+  background-color: grey;
+  border: none;
+  margin: 1em;
+}
+
+.game-difficulty-title,
+.game-question-title {
+  margin-top: 0;
+}
+
+.icon {
+  height: 2.5em;
+  width: 2.5em;
+}
+
+
+.game-answers {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: left;
+}
+
+ol {
+  padding: 0;
+  margin: 0;
+  margin-left: 1.7em;
+}
+
+.game-correct,
+.game-incorrect {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.game-correct {
+  margin-bottom: 0;
+  color: red;
+}
