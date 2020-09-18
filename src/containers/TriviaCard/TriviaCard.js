@@ -42,7 +42,6 @@ export function insertBadText(string) {
 export const mapDispatchToProps = (dispatch) => {
   return {
     addToGame: (question) => {
-      console.log('got here');
       dispatch(addToGame(question));
       dispatch(resetError());
     },
