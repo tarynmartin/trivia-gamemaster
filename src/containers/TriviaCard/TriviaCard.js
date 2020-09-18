@@ -12,8 +12,6 @@ const TriviaCard = (props) => {
     )
   })
 
-  let question = document.querySelector('#root');
-
   return (
     <div className='card'>
       <button className='add-question' onClick={() => props.checkForDuplicates(props.questions, props.everything)}><FaPlus className='icon'/></button>
@@ -41,14 +39,6 @@ export const checkForDuplicates = (questions, questionObj) => {
       return alert('You have already added this question to your game. Please add a new one!')
     }
   }
-}
-
-export function fixBadStrings(string) {
-  return { __html: `<h2>${string}</h2>`}
-}
-
-export function insertBadText(string) {
-  return <div dangerouslySetInnerHTML={fixBadStrings(string)} />
 }
 
 export const mapStateToProps = (state) => {
