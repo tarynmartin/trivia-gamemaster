@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { fetchQuestions } from '../../helpers/apiCalls';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+const Entities = require('html-entities').AllHtmlEntities;
+
+const entities = new Entities();
 
 class QuestionBar extends Component {
   constructor() {
@@ -47,16 +50,33 @@ class QuestionBar extends Component {
     if (validInput) {
       fetchQuestions(questionsNumber, questionCategory, questionDifficulty)
         .then((questions) => {
-          let retrievedQuestions = questions.results.map(question => {
-            question.id = Date.now() * Math.floor(Math.random() * 100);
-            return question;
-          })
+          let retrievedQuestions = this.translateResponse(questions);
           this.props.allQuestions(retrievedQuestions)
         })
         .catch(error => this.props.handleError(error))
     } else {
       return alert('Please use a number between 1-50 for questions.')
     }
+  }
+
+  translateResponse = (questions) => {
+    let retrievedQuestions =
+    questions.results.map(question => {
+      question.id = Date.now() * Math.floor(Math.random() * 100);
+
+      const decodedQuestion = entities.decode(question.question);
+      const decodedCorrect = entities.decode(question.correct_answer);
+      const decodedIncorrect = question.incorrect_answers.map(answer => {
+        return entities.decode(answer)
+      })
+
+      question.question = decodedQuestion;
+      question.correct_answer = decodedCorrect;
+      question.incorrect_answers = decodedIncorrect;
+
+      return question;
+    })
+    return retrievedQuestions;
   }
 
   render() {
