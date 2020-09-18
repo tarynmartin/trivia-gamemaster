@@ -3,10 +3,25 @@
   display: grid;
   grid-template-rows: auto auto auto;
   overflow-wrap: anywhere;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px 1px black;
 }
 
 .add-question {
-  height: 1.5em;
+  height: 2.5em;
+  background-color: grey;
+  border: none;
+  margin: 1em;
+}
+
+.difficulty-title,
+.question-title {
+  margin-top: 0;
+}
+
+.icon {
+  height: 2.5em;
+  width: 2.5em;
 }
 
 

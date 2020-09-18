@@ -1,6 +1,10 @@
 .question-bar {
   display: grid;
   grid-template-columns: auto auto auto auto;
+  background-color: darkblue;
+  color: white;
+  padding-bottom: 2em;
+  box-shadow: 4px 4px 10px 1px black;
 }
 
 .category {
@@ -20,11 +24,14 @@
   overflow-y: scroll;
 }
 
-.dropdown-btn {
-  background-color: #4CAF50;
+.difficulty-btn,
+.dropdown-btn,
+.submit {
+  background-color: darkblue;
   color: white;
-  padding: 16px;
-  font-size: 16px;
+  padding-top: .9em;
+  font-size: 1.5em;
+  font-weight: bold;
   border: none;
 }
 
@@ -39,7 +46,7 @@
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropdown-btn {background-color: grey;}
 
 .number-questions {
   display: grid;
@@ -47,8 +54,9 @@
 }
 
 .question-number {
-  height: 5vh;
+  height: 4vh;
   width: 10vh;
+  margin: 1em;
 }
 
 .difficulty {
@@ -68,14 +76,6 @@
   overflow-y: scroll;
 }
 
-.difficulty-btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
 .difficulty-content a {
   color: black;
   padding: 12px 16px;
@@ -87,8 +87,8 @@
 
 .difficulty-dropdown:hover .difficulty-content {display: block;}
 
-.difficulty-dropdown:hover .difficulty-btn {background-color: #3e8e41;}
+.difficulty-dropdown:hover .difficulty-btn {background-color: grey;}
 
 .submit {
-  height: 5vh;
+  padding-top: 0;
 }

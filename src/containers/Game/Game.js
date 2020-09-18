@@ -8,7 +8,6 @@ const Game = () => {
   return (
     <>
     <h3>This will be the game</h3>
-    <TriviaCard />
     </>
   )
 }

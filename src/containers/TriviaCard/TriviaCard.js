@@ -1,6 +1,7 @@
 import React from 'react';
 import './TriviaCard.css';
 import { addToGame, createError, resetError } from '../../actions/actions.js';
+import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -15,10 +16,10 @@ const TriviaCard = (props) => {
 
   return (
     <div className='card'>
-      <button className='add-question' onClick={() => props.addToGame(props.everything)}>Add to Game</button>
+      <button className='add-question' onClick={() => props.addToGame(props.everything)}><FaPlus className='icon'/></button>
       <div className='question'>
-      <h2>{props.question}</h2>
-      <h3>{props.difficulty}</h3>
+      <h2 className='question-title'>{props.question}</h2>
+      <h3 className='difficulty-title'>{props.difficulty}</h3>
       </div>
       <div className='answers'>
         <ol>
