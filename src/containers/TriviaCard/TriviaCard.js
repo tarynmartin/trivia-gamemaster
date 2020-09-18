@@ -16,7 +16,7 @@ const TriviaCard = (props) => {
 
   return (
     <div className='card'>
-      <button className='add-question' onClick={() => props.addToGame(props.everything)}><FaPlus className='icon'/></button>
+      <button className='add-question' onClick={() => props.checkForDuplicates(props.questions, props.everything)}><FaPlus className='icon'/></button>
       <div className='question'>
       <h2 className='question-title'>{props.question}</h2>
       <h3 className='difficulty-title'>{props.difficulty}</h3>
@@ -31,6 +31,18 @@ const TriviaCard = (props) => {
   )
 }
 
+export const checkForDuplicates = (questions, questionObj) => {
+  return (dispatch) => {
+    const checked = questions.find(question => { return question.id === questionObj.id })
+
+    if (checked === undefined) {
+      dispatch(addToGame(questionObj))
+    } else {
+      return alert('You have already added this question to your game. Please add a new one!')
+    }
+  }
+}
+
 export function fixBadStrings(string) {
   return { __html: `<h2>${string}</h2>`}
 }
@@ -39,11 +51,20 @@ export function insertBadText(string) {
   return <div dangerouslySetInnerHTML={fixBadStrings(string)} />
 }
 
+export const mapStateToProps = (state) => {
+  return {
+    questions: state.addToGame
+  }
+}
+
 export const mapDispatchToProps = (dispatch) => {
   return {
     addToGame: (question) => {
       dispatch(addToGame(question));
       dispatch(resetError());
+    },
+    checkForDuplicates: (questions, questionObj) => {
+      dispatch(checkForDuplicates(questions, questionObj));
     },
     handleError: (error) => {
       dispatch(createError(error));
@@ -51,6 +72,4 @@ export const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(TriviaCard);
-
-// create conditional renders of certain elements
+export default connect(mapStateToProps, mapDispatchToProps)(TriviaCard);
