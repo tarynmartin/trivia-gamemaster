@@ -1,6 +1,6 @@
 import React from 'react';
 import './GameCard.css';
-import { addToGame, createError, resetError } from '../../actions/actions.js';
+import { removeQuestion, createError, resetError } from '../../actions/actions.js';
 import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -12,13 +12,12 @@ const GameCard = (props) => {
     )
   })
 
-  let question = document.querySelector('#root');
-
   return (
     <div className='game-card'>
-      <button className='remove-question'><FaPlus className='icon'/></button>
+      <button className='remove-question' onClick={() => props.removeQuestion(props.everything)}><FaPlus className='icon'/></button>
       <div className='game-question'>
       <h2 className='game-question-title'>{props.question.question}</h2>
+      <h3 className='game-category'>{props.question.category}</h3>
       <h3 className='game-difficulty-title'>{props.question.difficulty}</h3>
       </div>
       <div className='game-answers'>
@@ -31,18 +30,10 @@ const GameCard = (props) => {
   )
 }
 
-export function fixBadStrings(string) {
-  return { __html: `<h2>${string}</h2>`}
-}
-
-export function insertBadText(string) {
-  return <div dangerouslySetInnerHTML={fixBadStrings(string)} />
-}
-
 export const mapDispatchToProps = (dispatch) => {
   return {
-    addToGame: (question) => {
-      dispatch(addToGame(question));
+    removeQuestion: (question) => {
+      dispatch(removeQuestion(question));
       dispatch(resetError());
     },
     handleError: (error) => {
@@ -50,7 +41,5 @@ export const mapDispatchToProps = (dispatch) => {
     }
   };
 };
-
-//onClick={() => props.addToGame(props.everything) add to icon to remove?
 
 export default connect(null, mapDispatchToProps)(GameCard);
