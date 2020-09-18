@@ -17,6 +17,7 @@ const TriviaCard = (props) => {
       <button className='add-question' onClick={() => props.checkForDuplicates(props.questions, props.everything)}><FaPlus className='icon'/></button>
       <div className='question'>
       <h2 className='question-title'>{props.question}</h2>
+      <h3 className='question-category'>{props.category}</h3>
       <h3 className='difficulty-title'>{props.difficulty}</h3>
       </div>
       <div className='answers'>
