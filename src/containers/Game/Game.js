@@ -1,15 +1,40 @@
 import React from 'react';
 import './Game.css';
-import TriviaCard from '../TriviaCard/TriviaCard';
+import GameCard from '../GameCard/GameCard';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Game = () => {
+const Game = (props) => {
+  const retrievedQuestions = props.questions.map((question, index) => {
+    return (
+      <GameCard
+        question={question.question}
+        category={question.category}
+        difficulty={question.difficulty}
+        correct={question.correct_answer}
+        incorrect={question.incorrect_answers}
+        everything={question}
+        key={index}
+      />
+    )
+  })
+
   return (
-    <>
-    <h3>This will be the game</h3>
-    </>
+    <div className='game'>
+      <div>
+        <h2 className='game-title'>Your Game</h2>
+      </div>
+      <div className='all-questions'>
+        {retrievedQuestions}
+      </div>
+    </div>
   )
 }
 
-export default connect(null, null)(Game);
+export const mapStateToProps = (state) => {
+  return {
+    questions: state.addToGame
+  }
+}
+
+export default connect(mapStateToProps, null)(Game);
