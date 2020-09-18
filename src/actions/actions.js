@@ -13,6 +13,13 @@ export const addToGame = (question) => {
   }
 }
 
+export const removeQuestion = (question) => {
+  return {
+    type: 'REMOVE_QUESTION',
+    question
+  }
+}
+
 export const createError = (error) => {
   return {
     type: 'ERRORED',
