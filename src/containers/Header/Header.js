@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 const Header = () => {
   return (
     <div className='header'>
-      <Link to={'/'}>
-        <h1>Be Your Own QuizMaster!</h1>
+      <Link className='link' to={'/'}>
+        <h1 className='main-title'>Be Your Own QuizMaster!</h1>
       </Link>
       <div className='btn-holder'>
         <Link to={'/create_game'}>

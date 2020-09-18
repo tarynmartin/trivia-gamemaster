@@ -2,8 +2,17 @@
   text-align: center;
   background-color: lightblue;
   margin: 0;
+  /* may need to find a way to fill screen on load? color doesn't go to bottom of screen */
 }
 
 h1 {
   margin: 0;
+}
+
+.instructions {
+  padding-top: 10vh;
+}
+
+.list-instructions {
+  text-align: center;
 }
