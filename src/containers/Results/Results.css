@@ -1,0 +1,18 @@
+.results {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin: 0;
+  margin-top: 2em;
+}
+
+.results-title {
+  grid-column: 1 / span 5;
+  grid-row: 1;
+}
+
+.all-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1em;
+  margin: 1em;
+}

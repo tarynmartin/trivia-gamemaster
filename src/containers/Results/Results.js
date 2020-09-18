@@ -1,16 +1,40 @@
 import React from 'react';
 import './Results.css';
 import TriviaCard from '../TriviaCard/TriviaCard';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types'
 
-const Results = () => {
+export const Results = (props) => {
+  const retrievedQuestions = props.questions.map((question, index) => {
+    return (
+      <TriviaCard
+        question={question.question}
+        category={question.category}
+        difficulty={question.difficulty}
+        correct={question.correct_answer}
+        incorrect={question.incorrect_answers}
+        everything={question}
+        key={index}
+      />
+    )
+  })
+
   return (
-    <>
-    <h3>These will be the results</h3>
-    <TriviaCard />
-    </>
+    <div className='results'>
+      <div>
+        <h2 className='results-title'>Results</h2>
+      </div>
+      <div className='all-cards'>
+        {retrievedQuestions}
+      </div>
+    </div>
   )
 }
 
-export default connect(null, null)(Results);
+export const mapStateToProps = (state) => {
+  return {
+    questions: state.updateQuestions
+  }
+}
+
+export default connect(mapStateToProps, null)(Results);

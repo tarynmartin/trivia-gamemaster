@@ -5,6 +5,14 @@ export const updateQuestions = (questions) => {
   }
 }
 
+export const addToGame = (question) => {
+  return {
+    type: 'ADD_TO_GAME',
+    id: question.id,
+    question
+  }
+}
+
 export const createError = (error) => {
   return {
     type: 'ERRORED',

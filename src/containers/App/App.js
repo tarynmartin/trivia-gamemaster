@@ -10,11 +10,32 @@ import { connect } from 'react-redux';
 const App = () => {
   return (
     <div className="App">
-      <h1>Hello world!</h1>
-      <Header />
-      <QuestionBar />
-      <Game />
-      <Results />
+      <Route exact
+          path='/create_game'
+          render={() => {
+            return (
+              <>
+                <Header />
+                <QuestionBar />
+                <Results />
+              </>)
+          }}
+        />
+        <Route exact
+            path='/your_game'
+            render={() => {
+              return (
+                <>
+                  <Header />
+                  <Game />
+                </>
+              )
+            }}
+          />
+          <Route exact
+              path='/'
+              render={() => <Header />}
+            />
     </div>
   );
 }

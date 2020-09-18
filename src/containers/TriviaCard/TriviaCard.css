@@ -1,3 +1,36 @@
 .card {
   background-color: grey;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  overflow-wrap: anywhere;
+}
+
+.add-question {
+  height: 1.5em;
+}
+
+
+.answers {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: left;
+}
+
+ol {
+  padding: 0;
+  margin: 0;
+  margin-left: 1.7em;
+}
+
+.correct,
+.incorrect {
+  margin-top: 0;
+  padding-top: 0;
+  /* overflow-wrap: break-word; */
+}
+
+.correct {
+  margin-bottom: 0;
+  color: red;
 }

@@ -5,7 +5,19 @@ import { connect } from 'react-redux';
 
 const Header = () => {
   return (
-    <h2 className='header'>This is the header</h2>
+    <div className='header'>
+      <Link to={'/'}>
+        <h1>Be Your Own QuizMaster!</h1>
+      </Link>
+      <div className='btn-holder'>
+        <Link to={'/create_game'}>
+          <button className='create-game'>Create Your Own Game</button>
+        </Link>
+        <Link to={'/your_game'}>
+          <button className='your-game'>Your Game</button>
+        </Link>
+      </div>
+    </div>
   )
 }
 
