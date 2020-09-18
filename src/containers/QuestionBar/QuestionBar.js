@@ -47,8 +47,11 @@ class QuestionBar extends Component {
     if (validInput) {
       fetchQuestions(questionsNumber, questionCategory, questionDifficulty)
         .then((questions) => {
-          console.log('here: ', questions.results);
-          this.props.allQuestions(questions.results)
+          let retrievedQuestions = questions.results.map(question => {
+            question.id = Date.now() * Math.floor(Math.random() * 100);
+            return question;
+          })
+          this.props.allQuestions(retrievedQuestions)
         })
         .catch(error => this.props.handleError(error))
     } else {
