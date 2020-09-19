@@ -3,7 +3,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className='header'>
       <Link className='link' to={'/'}>

@@ -4,16 +4,11 @@ import GameCard from '../GameCard/GameCard';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Game = (props) => {
+export const Game = (props) => {
   const retrievedQuestions = props.questions.map((question, index) => {
     return (
       <GameCard
         question={question.question}
-        category={question.category}
-        difficulty={question.difficulty}
-        correct={question.correct_answer}
-        incorrect={question.incorrect_answers}
-        everything={question}
         key={index}
       />
     )

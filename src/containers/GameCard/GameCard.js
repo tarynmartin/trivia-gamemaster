@@ -5,7 +5,7 @@ import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const GameCard = (props) => {
+export const GameCard = (props) => {
   const listAnswers = props.question.incorrect_answers.map((answer, index) => {
     return (
       <li key={index}>{answer}</li>
@@ -14,7 +14,7 @@ const GameCard = (props) => {
 
   return (
     <div className='game-card'>
-      <button className='remove-question' onClick={() => props.removeQuestion(props.everything)}><FaPlus className='icon'/></button>
+      <button className='remove-question' onClick={() => props.removeQuestion(props.question)}>Remove</button>
       <div className='game-question'>
       <h2 className='game-question-title'>{props.question.question}</h2>
       <h3 className='game-category'>{props.question.category}</h3>
