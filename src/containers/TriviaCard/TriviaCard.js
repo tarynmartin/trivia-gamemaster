@@ -5,7 +5,7 @@ import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const TriviaCard = (props) => {
+export const TriviaCard = (props) => {
   const listAnswers = props.incorrect.map((answer, index) => {
     return (
       <li key={index}>{answer}</li>
@@ -14,7 +14,7 @@ const TriviaCard = (props) => {
 
   return (
     <div className='card'>
-      <button className='add-question' onClick={() => props.checkForDuplicates(props.questions, props.everything)}><FaPlus className='icon'/></button>
+      <button className='add-question' onClick={() => props.checkForDuplicates(props.questions, props.everything)}>Add</button>
       <div className='question'>
       <h2 className='question-title'>{props.question}</h2>
       <h3 className='question-category'>{props.category}</h3>
