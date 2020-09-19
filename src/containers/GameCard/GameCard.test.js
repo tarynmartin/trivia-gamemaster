@@ -1,40 +1,42 @@
 import React from 'react';
-import GameCard from './GameCard.js';
-import { screen, render, fireEvent, waitFor } from '@testing-library/react';
+import { GameCard } from './GameCard';
+import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom'
-import { MemoryRouter } from 'react-router-dom';
-import { removeQuestion } from '../../actions/actions.js';
+import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from '../../reducers/index.js';
 import thunk from 'redux-thunk';
 
 describe('GameCard', () => {
-  it('should display a question and related info on render', () => {
-    const store = createStore(rootReducer, applyMiddleware(thunk));
+  let store, questionObj;
 
-    const questionObj = {
-            "id": "909",
-            "category": "Entertainment: Film",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "Which of the following movies was not based on a novel by Stephen King?",
-            "correct_answer": "The Thing",
-            "incorrect_answers": [
-                "Carrie",
-                "Misery",
-                "The Green Mile"
-            ]
-        }
+  beforeEach(() => {
+    store = createStore(rootReducer, applyMiddleware(thunk));
+
+    questionObj = {
+      "id": "909",
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which of the following movies was not based on a novel by Stephen King?",
+      "correct_answer": "The Thing",
+      "incorrect_answers": [
+          "Carrie",
+          "Misery",
+          "The Green Mile"
+      ]
+    }
+  });
+  it('should display a question and related info on render', () => {
 
     render(
-      <Provider store={store}>
-        <MemoryRouter>
+      <Provider store={ store }>
+        <BrowserRouter>
           <GameCard
             question={questionObj}
-            key={0}
           />
-        </MemoryRouter>
+        </BrowserRouter>
       </Provider>
     )
 
@@ -51,43 +53,26 @@ describe('GameCard', () => {
     expect(incorrectAnswers).toBeInTheDocument();
   })
   it('should call removeQuestion when button is clicked', () => {
+
     const mockRemove = jest.fn();
 
-    const store = createStore(rootReducer, applyMiddleware(thunk));
-
-    const questionObj = {
-            "id": "909",
-            "category": "Entertainment: Film",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "Which of the following movies was not based on a novel by Stephen King?",
-            "correct_answer": "The Thing",
-            "incorrect_answers": [
-                "Carrie",
-                "Misery",
-                "The Green Mile"
-            ]
-        }
-
     render(
-      <Provider store={store}>
-        <MemoryRouter>
+      <Provider store={ store }>
+        <BrowserRouter>
           <GameCard
             question={questionObj}
-            key={0}
             removeQuestion={mockRemove}
           />
-        </MemoryRouter>
+        </BrowserRouter>
       </Provider>
     )
 
-    const button = screen.getByRole('button', {name: 'Remove'});
+    const button1 = screen.getByRole('button', {name: 'Remove'});
 
-    fireEvent.click(button);
+    fireEvent.click(button1);
 
-
-      expect(mockRemove).toBeCalledTimes(1);
-      expect(mockRemove).toBeCalledWith(questionObj);
+    expect(mockRemove).toBeCalledTimes(1);
+    expect(mockRemove).toBeCalledWith(questionObj);
 
   })
 })
