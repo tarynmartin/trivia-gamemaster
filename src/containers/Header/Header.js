@@ -11,7 +11,7 @@ const Header = () => {
       </Link>
       <div className='btn-holder'>
         <Link to={'/create_game'}>
-          <button className='create-game'>Create Your Own Game</button>
+          <button className='create-game'>Choose Questions</button>
         </Link>
         <Link to={'/your_game'}>
           <button className='your-game'>Your Game</button>
