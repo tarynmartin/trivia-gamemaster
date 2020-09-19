@@ -5,7 +5,7 @@ import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const GameCard = (props) => {
+export const GameCard = (props) => {
   const listAnswers = props.question.incorrect_answers.map((answer, index) => {
     return (
       <li key={index}>{answer}</li>
