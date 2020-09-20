@@ -42,7 +42,7 @@ export const App = () => {
                       <h2>Let's Create A Game!</h2>
                       <p>This app allows the user to create their own trivia game based on questions they can look up on here! To start, follow the directions below:</p>
                       <div className='list-instructions'>
-                        <h3>Click on the create your own game button.</h3>
+                        <h3>Click on the choose questions button.</h3>
                         <h3>Here, select a category, number of questions, and difficulty level and hit submit</h3>
                         <h3>Some categories don't have enough questions, so you may need to try again.</h3>
                         <h3>If you want to add a question to your game, click the add button on the question and it will be saved</h3>
