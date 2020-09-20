@@ -104,9 +104,9 @@ describe('TriviaCard', () => {
       </Provider>
     )
 
-    const button = screen.getByRole('button', {name: 'Add'});
+    const button1 = screen.getByRole('button', {name: 'Add'});
 
-    fireEvent.click(button);
+    fireEvent.click(button1);
 
     expect(mockAdd).toBeCalledTimes(1);
     expect(mockAdd).toBeCalledWith(questionObj);

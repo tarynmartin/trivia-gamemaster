@@ -9,7 +9,7 @@ const Entities = require('html-entities').AllHtmlEntities;
 
 const entities = new Entities();
 
-class QuestionBar extends Component {
+export class QuestionBar extends Component {
   constructor() {
     super();
     this.state= {
@@ -83,9 +83,9 @@ class QuestionBar extends Component {
     return (
       <div className ='question-bar'>
         <div className='category'>
-          <h2>Choose a Category: </h2>
-          <select className='dropdown' onChange={this.handleQuestionCategory}>
-            <option value='9'>Categories</option>
+          <h2>Choose a Category:</h2>
+          <select className='dropdown' onChange={this.handleQuestionCategory} data-testid="select-one">
+            <option data-testid="top" value='9'>Categories</option>
             <option value='General Knowledge'>General Knowledge</option>
             <option value='10'>Entertainment: Books</option>
             <option value='11'>Entertainment: Film</option>
@@ -100,9 +100,9 @@ class QuestionBar extends Component {
             <option value='17'>Science & Nature</option>
             <option value='18'>Science: Computers</option>
             <option value='30'>Science: Gadgets</option>
-            <option value='19'>Math</option>
+            <option data-testid="math" value='19'>Math</option>
             <option value='20'>Mythology</option>
-            <option value='21'>Sports</option>
+            <option data-testid="sports" value='21'>Sports</option>
             <option value='22'>Geography</option>
             <option value='23'>History</option>
             <option value='24'>Politics</option>
@@ -113,7 +113,7 @@ class QuestionBar extends Component {
           </select>
         </div>
         <div className='number-questions'>
-          <h2>Choose How Many Questions: </h2>
+          <h2>Choose How Many Questions:</h2>
           <input
             className='question-number'
             type='number'
@@ -122,12 +122,12 @@ class QuestionBar extends Component {
           />
         </div>
         <div className='difficulty'>
-        <h2>Choose Difficulty: </h2>
-          <select className='difficulty-dropdown' onChange={this.handleDifficulty}>
+        <h2>Choose Difficulty:</h2>
+          <select data-testid="select-difficulty" className='difficulty-dropdown' onChange={this.handleDifficulty}>
             <option>Difficulty</option>
-            <option value='easy'>Easy</option>
+            <option data-testid="easy" value='easy'>Easy</option>
             <option value='medium'>Medium</option>
-            <option value='hard'>Hard</option>
+            <option data-testid="hard" value='hard'>Hard</option>
           </select>
         </div>
         <button className='submit' onClick={this.submitRequest}>Submit</button>

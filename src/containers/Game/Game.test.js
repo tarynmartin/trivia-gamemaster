@@ -68,36 +68,9 @@ describe('Game component', () => {
     expect(question1).toBeInTheDocument();
     expect(question2).toBeInTheDocument();
   });
+  it('should display filler text if no questions are in store', () => {
 
-  // it('should display an error message if there are no results to display', () => {
-  //
-  //   render(
-  //       <BrowserRouter>
-  //         <Results drinksList={[]} />
-  //       </BrowserRouter>
-  //   )
-  //
-  //   const noResults = screen.getByText('Sorry, we couldn\'t find any cocktails that match your search.');
-  //
-  //   expect(noResults).toBeInTheDocument();
-  // });
-  //
-  // it('should display the error from the redux store if there is one', () => {
-  //
-  //   render(
-  //     <BrowserRouter>
-  //       <Results
-  //         drinksList={[]}
-  //         errorMessage={'We\'re sorry we could not find that ingredient. Check that you have spelled the ingredient correctly or try a different search.'}
-  //       />
-  //     </BrowserRouter>
-  //   )
-  //
-  //   const noResults = screen.getByText('We\'re sorry we could not find that ingredient. Check that you have spelled the ingredient correctly or try a different search.');
-  //
-  //   expect(noResults).toBeInTheDocument();
-  // });
-  //
+  });
   it('should only return the necessary info from the redux store', () => {
 
     const mockState = {
