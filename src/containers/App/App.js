@@ -7,7 +7,7 @@ import Game from '../Game/Game';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const App = () => {
+export const App = () => {
   return (
     <div className="App">
       <Route exact
