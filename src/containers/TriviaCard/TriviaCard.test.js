@@ -15,7 +15,7 @@ describe('TriviaCard', () => {
     store = createStore(rootReducer, applyMiddleware(thunk));
 
     questionObj = {
-      id: "909",
+      id: "910",
       category: "Entertainment: Film",
       type: "multiple",
       difficulty: "easy",
@@ -67,38 +67,20 @@ describe('TriviaCard', () => {
     const mockAdd = jest.fn();
     const mockCheck = jest.fn();
 
-    const mockQuestions = {
-      questions: [
-        {
-          id: '910',
-          question: {
-            id: "910",
-            category: "Cats",
-            type: "multiple",
-            difficulty: "easy",
-            question: "How many cats do I have?",
-            correct_answer: "1",
-            incorrect_answers: [
-                "0",
-                "2",
-                "3"
-            ]}
-        }
-      ]
-    }
+    const mockQuestions = []
 
     render(
       <Provider store={ store }>
         <BrowserRouter>
           <TriviaCard
           questions={mockQuestions}
-          question={'Which of the following movies was not based on a novel by Stephen King?'}
+          question={'Cats'}
           category={'Entertainment: Film'}
           difficulty={'easy'}
-          correct={'The Thing'}
-          incorrect={["Carrie",
+          correct={'Awful'}
+          incorrect={["Catastrophic",
           "Misery",
-          "The Green Mile"]}
+          "Wonderful"]}
           everything={questionObj}
           key={0}
           addToGame={mockAdd}
@@ -109,10 +91,10 @@ describe('TriviaCard', () => {
     )
 
     const button1 = screen.getByRole('button', {name: 'Add'});
-    expect(button1).toBeInTheDocument();
 
     fireEvent.click(button1);
 
+    expect(button1).toBeInTheDocument();
     expect(mockAdd).toBeCalledTimes(1);
     expect(mockAdd).toBeCalledWith(questionObj);
 
