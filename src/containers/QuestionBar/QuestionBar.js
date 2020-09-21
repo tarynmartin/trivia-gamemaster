@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './QuestionBar.css';
 import { updateQuestions, createError, resetError } from '../../actions/actions.js';
-import { Link } from 'react-router-dom';
 import { fetchQuestions } from '../../helpers/apiCalls';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -15,7 +14,7 @@ export class QuestionBar extends Component {
     this.state= {
       category: null,
       numberQuestions: null,
-      difficulty: null
+      difficulty: null,
     }
   }
   handleNumberChange = (event) => {
@@ -50,10 +49,14 @@ export class QuestionBar extends Component {
     if (validInput) {
       fetchQuestions(questionsNumber, questionCategory, questionDifficulty)
         .then((questions) => {
+          this.props.resetError();
           let retrievedQuestions = this.translateResponse(questions);
+          if(retrievedQuestions.length === 0) {
+            this.props.handleError('Sorry, it looks like there were no results. Please enter a new search and try again!')
+          }
           this.props.allQuestions(retrievedQuestions)
         })
-        .catch(error => this.props.handleError(error))
+        .catch(() => this.props.handleError("We couldn't retrieve those questions. Please try again."))
     } else {
       return alert('Please use a number between 1-50 for questions.')
     }
@@ -140,12 +143,20 @@ export const mapDispatchToProps = (dispatch) => {
   return {
     allQuestions: (questions) => {
       dispatch(updateQuestions(questions));
-      dispatch(resetError());
     },
     handleError: (error) => {
       dispatch(createError(error));
+    },
+    resetError: () => {
+      dispatch(resetError());
     }
   }
 }
 
 export default connect(null, mapDispatchToProps)(QuestionBar);
+
+QuestionBar.propTypes = {
+  category: PropTypes.string,
+  numberQuestions: PropTypes.string,
+  difficulty: PropTypes.string
+}

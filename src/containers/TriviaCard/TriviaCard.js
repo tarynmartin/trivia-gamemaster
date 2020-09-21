@@ -1,9 +1,8 @@
 import React from 'react';
 import './TriviaCard.css';
 import { addToGame, createError, resetError } from '../../actions/actions.js';
-import { FaPlus } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export const TriviaCard = (props) => {
   const listAnswers = props.incorrect.map((answer, index) => {
@@ -64,3 +63,13 @@ export const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TriviaCard);
+
+TriviaCard.propTypes = {
+  questions: PropTypes.arrayOf(PropTypes.object),
+  question: PropTypes.string,
+  category: PropTypes.string,
+  difficulty: PropTypes.string,
+  correct: PropTypes.string,
+  incorrect: PropTypes.arrayOf(PropTypes.string),
+  everything: PropTypes.object
+}

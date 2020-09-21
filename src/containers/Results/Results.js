@@ -2,7 +2,7 @@ import React from 'react';
 import './Results.css';
 import TriviaCard from '../TriviaCard/TriviaCard';
 import { connect } from 'react-redux';
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 export const Results = (props) => {
   const retrievedQuestions = props.questions.map((question, index) => {
@@ -25,7 +25,18 @@ export const Results = (props) => {
         <h2 className='results-title'>Results</h2>
       </div>
       <div className='all-cards'>
-        {retrievedQuestions}
+        {retrievedQuestions.length === 0 &&
+          props.errorMessage &&
+          <p>{props.errorMessage}</p>
+        }
+        {retrievedQuestions.length === 0 && props.errorMessage === ''&&
+          <p>Put in your question search terms above!</p>
+        }
+        {retrievedQuestions.length > 0 &&
+          <>
+          {retrievedQuestions}
+          </>
+        }
       </div>
     </div>
   )
@@ -33,8 +44,13 @@ export const Results = (props) => {
 
 export const mapStateToProps = (state) => {
   return {
-    questions: state.updateQuestions
+    questions: state.updateQuestions,
+    errorMessage: state.errorMessage
   }
 }
 
 export default connect(mapStateToProps, null)(Results);
+
+Results.propTypes = {
+  questions: PropTypes.arrayOf(PropTypes.object)
+}

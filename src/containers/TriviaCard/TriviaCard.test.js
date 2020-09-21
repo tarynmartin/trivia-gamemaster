@@ -1,5 +1,5 @@
 import React from 'react';
-import { TriviaCard } from './TriviaCard';
+import { TriviaCard, mapStateToProps } from './TriviaCard';
 import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import { BrowserRouter } from 'react-router-dom';
@@ -15,13 +15,13 @@ describe('TriviaCard', () => {
     store = createStore(rootReducer, applyMiddleware(thunk));
 
     questionObj = {
-      "id": "909",
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "Which of the following movies was not based on a novel by Stephen King?",
-      "correct_answer": "The Thing",
-      "incorrect_answers": [
+      id: "909",
+      category: "Entertainment: Film",
+      type: "multiple",
+      difficulty: "easy",
+      question: "Which of the following movies was not based on a novel by Stephen King?",
+      correct_answer: "The Thing",
+      incorrect_answers: [
           "Carrie",
           "Misery",
           "The Green Mile"
@@ -67,21 +67,25 @@ describe('TriviaCard', () => {
     const mockAdd = jest.fn();
     const mockCheck = jest.fn();
 
-    const mockQuestions = [
-      {
-        "id": "910",
-        "category": "Cats",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "How many cats do I have?",
-        "correct_answer": "1",
-        "incorrect_answers": [
-            "0",
-            "2",
-            "3"
-        ]
-      }
-    ]
+    const mockQuestions = {
+      questions: [
+        {
+          id: '910',
+          question: {
+            id: "910",
+            category: "Cats",
+            type: "multiple",
+            difficulty: "easy",
+            question: "How many cats do I have?",
+            correct_answer: "1",
+            incorrect_answers: [
+                "0",
+                "2",
+                "3"
+            ]}
+        }
+      ]
+    }
 
     render(
       <Provider store={ store }>
@@ -105,6 +109,7 @@ describe('TriviaCard', () => {
     )
 
     const button1 = screen.getByRole('button', {name: 'Add'});
+    expect(button1).toBeInTheDocument();
 
     fireEvent.click(button1);
 
@@ -112,4 +117,66 @@ describe('TriviaCard', () => {
     expect(mockAdd).toBeCalledWith(questionObj);
 
   })
+  it('should only return the necessary information from the store', () => {
+    const mockState = {
+      errorMessage: '',
+      updateQuestions: [
+        {
+          id: '910',
+          question: {
+            id: "910",
+            category: "Cats",
+            type: "multiple",
+            difficulty: "easy",
+            question: "How many cats do I have?",
+            correct_answer: "1",
+            incorrect_answers: [
+                "0",
+                "2",
+                "3"
+            ]}
+        }
+      ],
+      addToGame: [
+        {
+          id: '910',
+          question: {
+            id: "910",
+            category: "Cats",
+            type: "multiple",
+            difficulty: "easy",
+            question: "How many cats do I have?",
+            correct_answer: "1",
+            incorrect_answers: [
+                "0",
+                "2",
+                "3"
+            ]}
+        }
+      ]
+    }
+    const expected = {
+      questions: [
+        {
+          id: '910',
+          question: {
+            id: "910",
+            category: "Cats",
+            type: "multiple",
+            difficulty: "easy",
+            question: "How many cats do I have?",
+            correct_answer: "1",
+            incorrect_answers: [
+                "0",
+                "2",
+                "3"
+            ]}
+        }
+      ]
+    }
+
+    const mappedProps = mapStateToProps(mockState);
+
+    expect(mappedProps).toEqual(expected);
+  });
 })
