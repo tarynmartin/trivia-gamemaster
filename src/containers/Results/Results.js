@@ -27,10 +27,10 @@ export const Results = (props) => {
       <div className='all-cards'>
         {retrievedQuestions.length === 0 &&
           props.errorMessage &&
-          <p>{props.errorMessage}</p>
+          <p className='error-message'>{props.errorMessage}</p>
         }
         {retrievedQuestions.length === 0 && props.errorMessage === ''&&
-          <p>Put in your question search terms above!</p>
+          <p className='error-message'>Put in your question search terms above!</p>
         }
         {retrievedQuestions.length > 0 &&
           <>
@@ -52,5 +52,6 @@ export const mapStateToProps = (state) => {
 export default connect(mapStateToProps, null)(Results);
 
 Results.propTypes = {
-  questions: PropTypes.arrayOf(PropTypes.object)
+  questions: PropTypes.arrayOf(PropTypes.object),
+  errorMessage: PropTypes.string
 }
