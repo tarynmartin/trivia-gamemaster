@@ -19,13 +19,13 @@ describe('Game component', () => {
       {
         id: 909,
         question: {
-          "id": "909",
-          "category": "Entertainment: Film",
-          "type": "multiple",
-          "difficulty": "easy",
-          "question": "Which of the following movies was not based on a novel by Stephen King?",
-          "correct_answer": "The Thing",
-          "incorrect_answers": [
+          id: "909",
+          category: "Entertainment: Film",
+          type: "multiple",
+          difficulty: "easy",
+          question: "Which of the following movies was not based on a novel by Stephen King?",
+          correct_answer: "The Thing",
+          incorrect_answers: [
               "Carrie",
               "Misery",
               "The Green Mile"
@@ -35,13 +35,13 @@ describe('Game component', () => {
       {
         id: 910,
         question: {
-          "id": "910",
-          "category": "Entertainment: Film",
-          "type": "multiple",
-          "difficulty": "easy",
-          "question": "How many cats do I have?",
-          "correct_answer": "1",
-          "incorrect_answers": [
+          id: "910",
+          category: "Entertainment: Film",
+          type: "multiple",
+          difficulty: "easy",
+          question: "How many cats do I have?",
+          correct_answer: "1",
+          incorrect_answers: [
               "0",
               "2",
               "3"
@@ -69,7 +69,17 @@ describe('Game component', () => {
     expect(question2).toBeInTheDocument();
   });
   it('should display filler text if no questions are in store', () => {
+    render(
+      <Provider store={ store }>
+        <BrowserRouter>
+          <Game questions={[]}/>
+        </BrowserRouter>
+      </Provider>
+    )
 
+    const message = screen.getByText('You have not selected', {exact: false});
+
+    expect(message).toBeInTheDocument();
   });
   it('should only return the necessary info from the redux store', () => {
 
