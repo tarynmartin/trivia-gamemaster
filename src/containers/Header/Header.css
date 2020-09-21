@@ -22,5 +22,12 @@
   margin-top: 1.1em;
   font-size: 1.6em;
   font-weight: bold;
-  border: solid;
+  border: none;
+}
+
+.create-game:hover,
+.your-game:hover {
+  transform: scale(1.05);
+  background-color: darkgrey;
+  cursor: pointer;
 }
