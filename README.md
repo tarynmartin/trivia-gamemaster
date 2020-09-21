@@ -53,16 +53,16 @@ Coming soon!
 ## Functionality
 
 ### Entering search terms and retrieving questions
-![alt text](filepath)
+![gif showing search and question results](src/assets/initial-functionality.gif)
 
 ### Entering search terms and no questions available
-![alt text](filepath)
+![gif showing error message on no questions](src/assets/search-error.gif)
 
-### Adding a question to your game and preventing duplicates
-![alt text](filepath)
+### Adding a question to your game
+![gif showing how to add a question and the page they are saved on](src/assets/add-questions.gif)
 
-### Going to your game and deleting a question you no longer want
-![alt text](filepath)
+### Preventing duplicate questions from being added and how to remove saved questions
+![gif showing how duplicates can't be added and how to remove a question](src/assets/remove-questions.gif)
 
 ## Authors
 
