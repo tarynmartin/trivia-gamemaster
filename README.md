@@ -5,9 +5,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-
-![logo](filepath)
-
 ## Table of Contents
 
 - [Brief Description](#brief-description)
@@ -20,22 +17,22 @@
 <!-- Brief Description -->
 
 ## Brief Description
-
+This app allows the user to create their own trivia game. This is aimed at people who lead trivia games in restaurants and bars, allowing them to create a game quickly and easily.
 
 ## How to use
-
+The user can search for trivia questions in specific categories and add them. A separate page lists all the questions they have added and the user can remove a question if they decide they don't want it.
 
 ## Built With
-
 - React 16
 - Redux 4
+- Redux Thunk
 - CSS
 
 ## Installation
 
 **Fork this repository:**
 
-https://github.com/relyt4me/stretch-project
+https://github.com/tarynmartin/trivia-gamemaster
 
 **Clone your forked repository**
 
@@ -50,12 +47,21 @@ https://github.com/relyt4me/stretch-project
 In terminal, go to the project directory and run 'npm start' to open the project in the browser. Have fun creating a trivia game!
 
 ### Live version
-
-[text](link)
+Coming soon!
+<!-- [text](link) -->
 
 ## Functionality
 
-### Searching for an ingredient to get a list and selecting one for the recipe  
+### Entering search terms and retrieving questions
+![alt text](filepath)
+
+### Entering search terms and no questions available
+![alt text](filepath)
+
+### Adding a question to your game and preventing duplicates
+![alt text](filepath)
+
+### Going to your game and deleting a question you no longer want
 ![alt text](filepath)
 
 ## Authors
@@ -67,8 +73,6 @@ In terminal, go to the project directory and run 'npm start' to open the project
 ## Acknowledgements and Resources
 
 [Original Project Link](https://frontend.turing.io/projects/module-3/binary-challenge.html)
-
-[Heather Faerber](https://github.com/hfaerber) for providing help and feedback.
 
 [Trivia Question Database](https://www.thecocktaildb.com/api.php) API used to retrieve trivia questions.
 
