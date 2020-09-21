@@ -76,23 +76,23 @@ describe('App', () => {
       response_code: 0,
       results: [
          {
-            "category": "blah",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "blah blah",
-            "correct_answer": "Wilson",
-            "incorrect_answers": [
+            category: "blah",
+            type: "multiple",
+            difficulty: "easy",
+            question: "blah blah",
+            correct_answer: "Wilson",
+            incorrect_answers: [
                 "Friday",
                 "Jones",
                 "Billy"
             ]
         }, {
-            "category": "humbug",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "blah x 3",
-            "correct_answer": "The Thing",
-            "incorrect_answers": [
+            category: "humbug",
+            type: "multiple",
+            difficulty: "easy",
+            question: "blah x 3",
+            correct_answer: "The Thing",
+            incorrect_answers: [
                 "Carrie",
                 "Misery",
                 "The Green Mile"
@@ -161,23 +161,23 @@ describe('App', () => {
       response_code: 0,
       results: [
          {
-            "category": "blah",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "blah blah",
-            "correct_answer": "Wilson",
-            "incorrect_answers": [
+            category: "blah",
+            type: "multiple",
+            difficulty: "easy",
+            question: "blah blah",
+            correct_answer: "Wilson",
+            incorrect_answers: [
                 "Friday",
                 "Jones",
                 "Billy"
             ]
         }, {
-            "category": "humbug",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "blah x 3",
-            "correct_answer": "The Thing",
-            "incorrect_answers": [
+            category: "humbug",
+            type: "multiple",
+            difficulty: "easy",
+            question: "blah x 3",
+            correct_answer: "The Thing",
+            incorrect_answers: [
                 "Carrie",
                 "Misery",
                 "The Green Mile"
@@ -245,10 +245,41 @@ describe('App', () => {
     // go to your Game
     // check that saved questions are displayed?
   });
-  it('should display an error message if the user doesn\'t enter enough info for fetch', () => {
+  it('should display an error message if the user doesn\'t enter enough info for fetch', async () => {
+    const mockedValue = {
+      response_code: 0,
+      results: []
+    }
 
-  });
-  it('should display an error message if there are no results of fetch', () => {
+    fetchQuestions.mockResolvedValueOnce(mockedValue);
+    const mockedFetch = jest.fn();
 
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    );
+
+    const button1 = screen.getByRole('button', {name: 'Choose Questions'});
+
+    fireEvent.click(button1);
+
+    const categoryMenu = screen.getByTestId('select-one');
+    const sports = screen.getByTestId('sports');
+    const numberInput = screen.getByPlaceholderText('1-50');
+    const difficultyMenu = screen.getByTestId('select-difficulty')
+    const hard = screen.getByTestId('hard');
+    const submit = screen.getByRole('button', {name: 'Submit'})
+
+    userEvent.selectOptions(categoryMenu, ['21']);
+    fireEvent.change(numberInput, { target: { value: '45' } });
+    userEvent.selectOptions(difficultyMenu, ['difficulty']);
+    fireEvent.click(submit);
+
+    const errorMsg = await waitFor(() => screen.getByText('Sorry, it looks like there were no results. Please enter a new search and try again!'))
+
+    expect(errorMsg).toBeInTheDocument();
   });
 })
