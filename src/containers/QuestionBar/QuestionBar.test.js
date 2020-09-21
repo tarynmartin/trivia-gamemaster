@@ -101,23 +101,23 @@ describe('QuestionBar component', () => {
       response_code: 0,
       results: [
          {
-            "category": "blah",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "blah",
-            "correct_answer": "Wilson",
-            "incorrect_answers": [
+            category: "blah",
+            type: "multiple",
+            difficulty: "easy",
+            question: "blah",
+            correct_answer: "Wilson",
+            incorrect_answers: [
                 "Friday",
                 "Jones",
                 "Billy"
             ]
         }, {
-            "category": "humbug",
-            "type": "multiple",
-            "difficulty": "easy",
-            "question": "blah",
-            "correct_answer": "The Thing",
-            "incorrect_answers": [
+            category: "humbug",
+            type: "multiple",
+            difficulty: "easy",
+            question: "blah",
+            correct_answer: "The Thing",
+            incorrect_answers: [
                 "Carrie",
                 "Misery",
                 "The Green Mile"
