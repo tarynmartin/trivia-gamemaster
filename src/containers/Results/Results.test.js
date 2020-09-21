@@ -17,26 +17,26 @@ describe('Game component', () => {
 
     mockQuestions = [
       {
-        "id": "909",
-        "category": "Entertainment: Film",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "Which of the following movies was not based on a novel by Stephen King?",
-        "correct_answer": "The Thing",
-        "incorrect_answers": [
+        id: "909",
+        category: "Entertainment: Film",
+        type: "multiple",
+        difficulty: "easy",
+        question: "Which of the following movies was not based on a novel by Stephen King?",
+        correct_answer: "The Thing",
+        incorrect_answers: [
             "Carrie",
             "Misery",
             "The Green Mile"
         ]
       },
       {
-        "id": "910",
-        "category": "Entertainment: Film",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "How many cats do I have?",
-        "correct_answer": "1",
-        "incorrect_answers": [
+        id: "910",
+        category: "Entertainment: Film",
+        type: "multiple",
+        difficulty: "easy",
+        question: "How many cats do I have?",
+        correct_answer: "1",
+        incorrect_answers: [
             "0",
             "2",
             "3"
@@ -64,45 +64,36 @@ describe('Game component', () => {
     expect(question2).toBeInTheDocument();
   });
 
-  // it('should display an error message if there are no results to display', () => {
-  //
-  //   render(
-  //       <BrowserRouter>
-  //         <Results drinksList={[]} />
-  //       </BrowserRouter>
-  //   )
-  //
-  //   const noResults = screen.getByText('Sorry, we couldn\'t find any cocktails that match your search.');
-  //
-  //   expect(noResults).toBeInTheDocument();
-  // });
-  //
-  // it('should display the error from the redux store if there is one', () => {
-  //
-  //   render(
-  //     <BrowserRouter>
-  //       <Results
-  //         drinksList={[]}
-  //         errorMessage={'We\'re sorry we could not find that ingredient. Check that you have spelled the ingredient correctly or try a different search.'}
-  //       />
-  //     </BrowserRouter>
-  //   )
-  //
-  //   const noResults = screen.getByText('We\'re sorry we could not find that ingredient. Check that you have spelled the ingredient correctly or try a different search.');
-  //
-  //   expect(noResults).toBeInTheDocument();
-  // });
-  //
+  it('should display an error message from the Redux store if there are no results to display', () => {
+
+    render(
+      <Provider store={ store }>
+        <BrowserRouter>
+          <Results
+          questions={[]}
+          errorMessage={'Sorry, we were unable to find any questions'}
+          />
+        </BrowserRouter>
+      </Provider>
+    )
+
+    const noResults = screen.getByText('Sorry, we were unable to find any questions');
+
+    expect(noResults).toBeInTheDocument();
+  });
+
   it('should only return the necessary info from the redux store', () => {
+    const mockError = 'Sorry, we don\'t have that';
 
     const mockState = {
-      errorMessage: '',
+      errorMessage: mockError,
       updateQuestions: mockQuestions,
       addToGame: []
     }
 
     const expected = {
-      questions: mockQuestions
+      questions: mockQuestions,
+      errorMessage: mockError
     }
 
     const props = mapStateToProps(mockState);
