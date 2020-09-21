@@ -1,6 +1,6 @@
 import React from 'react';
 import './TriviaCard.css';
-import { addToGame, createError, resetError } from '../../actions/actions.js';
+import { addToGame } from '../../actions/actions.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -51,13 +51,9 @@ export const mapDispatchToProps = (dispatch) => {
   return {
     addToGame: (question) => {
       dispatch(addToGame(question));
-      dispatch(resetError());
     },
     checkForDuplicates: (questions, questionObj) => {
       dispatch(checkForDuplicates(questions, questionObj));
-    },
-    handleError: (error) => {
-      dispatch(createError(error));
     }
   };
 };
