@@ -1,9 +1,8 @@
 import React from 'react';
 import './GameCard.css';
 import { removeQuestion, createError, resetError } from '../../actions/actions.js';
-import { FaPlus } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export const GameCard = (props) => {
   const listAnswers = props.question.incorrect_answers.map((answer, index) => {
@@ -43,3 +42,7 @@ export const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(GameCard);
+
+GameCard.propTypes = {
+  question: PropTypes.object
+}
