@@ -156,7 +156,7 @@ describe('App', () => {
 
     expect(mainPage).toBeInTheDocument();
   });
-  it.skip('should return to the previous results when returning to choose questions page from your game', async () => {
+  it('should return to the previous results when returning to choose questions page from your game', async () => {
     const mockedValues = {
       response_code: 0,
       results: [
@@ -228,22 +228,86 @@ describe('App', () => {
 
     expect(category).toBeInTheDocument();
 
+    const button3 = screen.getByRole('button', {name: 'Choose Questions'});
 
-    fireEvent.click(button1);
-    // screen.debug();
-    // await waitFor(() => expect(categoryMenu).toBeInTheDocument())
+    fireEvent.click(button3);
 
-    // await waitFor(() => {
-    //   expect(question1).toBeInTheDocument();
-    //   expect(question2).toBeInTheDocument();
-    // });
+    const categoryMenu2 = screen.getByTestId('select-one');
+    const question3 = await waitFor(() => screen.getByText('blah'));
+    const question4 = screen.getByText('humbug');
+
+    await waitFor(() => {
+      expect(categoryMenu2).toBeInTheDocument();
+      expect(question3).toBeInTheDocument();
+      expect(question4).toBeInTheDocument();
+    });
 
   });
-  it('should return to all questions on your game page when returning from choose questions page', () => {
-    // app to choose questions
-    // add a question to store
-    // go to your Game
-    // check that saved questions are displayed?
+  it('should return to all questions on your game page when returning from choose questions page', async () => {
+    const mockedValues = {
+      response_code: 0,
+      results: [
+         {
+            category: "blah",
+            type: "multiple",
+            difficulty: "easy",
+            question: "blah blah",
+            correct_answer: "Wilson",
+            incorrect_answers: [
+                "Friday",
+                "Jones",
+                "Billy"
+            ]
+        }
+      ]
+    }
+
+    fetchQuestions.mockResolvedValueOnce(mockedValues);
+
+    const mockedFetch = jest.fn();
+
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    );
+
+    const button1 = screen.getByRole('button', {name: 'Choose Questions'});
+
+    fireEvent.click(button1);
+
+    const categoryMenu = screen.getByTestId('select-one');
+    const sports = screen.getByTestId('sports');
+    const numberInput = screen.getByPlaceholderText('1-50');
+    const difficultyMenu = screen.getByTestId('select-difficulty')
+    const hard = screen.getByTestId('hard');
+    const submit = screen.getByRole('button', {name: 'Submit'})
+
+    userEvent.selectOptions(categoryMenu, ['21']);
+    fireEvent.change(numberInput, { target: { value: '45' } });
+    userEvent.selectOptions(difficultyMenu, ['hard']);
+    fireEvent.click(submit);
+
+    const question1 = await waitFor(() => screen.getByText('blah'));
+
+    expect(question1).toBeInTheDocument();
+
+    const addButton = screen.getByRole('button', {name: 'Add'});
+
+    fireEvent.click(addButton)
+
+    const button2 = screen.getByRole('button', {name: 'Your Game'});
+
+    fireEvent.click(button2);
+
+    const category = screen.getByRole('heading', {name: 'Your Game'});
+
+    const savedQuestion = screen.getByText('blah');
+
+    expect(category).toBeInTheDocument();
+    expect(savedQuestion).toBeInTheDocument();
   });
   it('should display an error message if the user doesn\'t enter enough info for fetch', async () => {
     const mockedValue = {
