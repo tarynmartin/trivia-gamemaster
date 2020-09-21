@@ -3,7 +3,7 @@
   grid-template-columns: auto auto auto auto;
   background-color: darkblue;
   color: white;
-  box-shadow: 4px 4px 10px 1px black;
+  box-shadow: 4px 4px 4px 1px black;
 }
 
 .category {

@@ -56,7 +56,9 @@ export class QuestionBar extends Component {
           }
           this.props.allQuestions(retrievedQuestions)
         })
-        .catch(() => this.props.handleError("We couldn't retrieve those questions. Please try again."))
+        .catch(() => {
+          this.props.handleError("We couldn't retrieve those questions. Please try again.")
+        })
     } else {
       return alert('Please use a number between 1-50 for questions.')
     }

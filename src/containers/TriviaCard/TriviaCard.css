@@ -14,6 +14,12 @@
   margin: 1em;
 }
 
+.add-question:hover {
+  transform: scale(1.05);
+  background-color: darkgrey;
+  cursor: pointer;
+}
+
 .difficulty-title,
 .question-title {
   margin-top: 0;

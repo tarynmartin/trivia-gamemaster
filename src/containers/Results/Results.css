@@ -20,3 +20,7 @@
   grid-gap: 1em;
   margin: 1em;
 }
+
+.error-message {
+  grid-column: 1 / span 5;
+}
