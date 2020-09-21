@@ -126,14 +126,19 @@ describe('QuestionBar component', () => {
       ]
     }
 
-    fetchQuestions.mockResolvedValueOnce(mockedValues);
+    fetchQuestions.mockResolvedValue(mockedValues);
 
     const mockedFetch = jest.fn();
+    const mockedError = jest.fn();
+    const mockedReset = jest.fn();
 
     render(
       <Provider store={ store }>
         <BrowserRouter>
-          <QuestionBar allQuestions={mockedFetch}/>
+          <QuestionBar
+          allQuestions={mockedFetch} handleError={mockedError}
+          resetError={mockedReset}
+          />
         </BrowserRouter>
       </Provider>
     )
@@ -150,8 +155,6 @@ describe('QuestionBar component', () => {
     userEvent.selectOptions(difficultyMenu, ['hard']);
     fireEvent.click(submit);
 
-    await waitFor(() => {
-      expect(mockedFetch).toBeCalledTimes(1);
-    })
+    await waitFor(() => expect(mockedFetch).toBeCalledTimes(1))
   });
 })
