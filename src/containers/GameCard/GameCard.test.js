@@ -15,13 +15,13 @@ describe('GameCard', () => {
     store = createStore(rootReducer, applyMiddleware(thunk));
 
     questionObj = {
-      "id": "909",
-      "category": "Entertainment: Film",
-      "type": "multiple",
-      "difficulty": "easy",
-      "question": "Which of the following movies was not based on a novel by Stephen King?",
-      "correct_answer": "The Thing",
-      "incorrect_answers": [
+      id: "909",
+      category: "Entertainment: Film",
+      type: "multiple",
+      difficulty: "easy",
+      question: "Which of the following movies was not based on a novel by Stephen King?",
+      correct_answer: "The Thing",
+      incorrect_answers: [
           "Carrie",
           "Misery",
           "The Green Mile"
@@ -51,7 +51,7 @@ describe('GameCard', () => {
     expect(difficulty).toBeInTheDocument();
     expect(correctAnswer).toBeInTheDocument();
     expect(incorrectAnswers).toBeInTheDocument();
-  })
+  });
   it('should call removeQuestion when button is clicked', () => {
 
     const mockRemove = jest.fn();
