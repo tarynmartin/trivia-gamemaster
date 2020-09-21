@@ -1,6 +1,6 @@
 import React from 'react';
 import './GameCard.css';
-import { removeQuestion, createError, resetError } from '../../actions/actions.js';
+import { removeQuestion, resetError } from '../../actions/actions.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -34,9 +34,6 @@ export const mapDispatchToProps = (dispatch) => {
     removeQuestion: (question) => {
       dispatch(removeQuestion(question));
       dispatch(resetError());
-    },
-    handleError: (error) => {
-      dispatch(createError(error));
     }
   };
 };
