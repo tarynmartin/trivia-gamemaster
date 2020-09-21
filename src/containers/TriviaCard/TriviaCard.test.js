@@ -74,13 +74,9 @@ describe('TriviaCard', () => {
         <BrowserRouter>
           <TriviaCard
           questions={mockQuestions}
-          question={'Cats'}
-          category={'Entertainment: Film'}
-          difficulty={'easy'}
-          correct={'Awful'}
-          incorrect={["Catastrophic",
+          incorrect={["Carrie",
           "Misery",
-          "Wonderful"]}
+          "The Green Mile"]}
           everything={questionObj}
           key={0}
           addToGame={mockAdd}
@@ -95,8 +91,8 @@ describe('TriviaCard', () => {
     fireEvent.click(button1);
 
     expect(button1).toBeInTheDocument();
-    expect(mockAdd).toBeCalledTimes(1);
-    expect(mockAdd).toBeCalledWith(questionObj);
+    expect(mockCheck).toBeCalledTimes(1);
+    expect(mockCheck).toBeCalledWith(mockQuestions, questionObj);
 
   })
   it('should only return the necessary information from the store', () => {
