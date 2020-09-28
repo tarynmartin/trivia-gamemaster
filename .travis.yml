@@ -1,5 +1,11 @@
 language: node_js
 node_js:
-  - "node"
+- node
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: TNVBzhfbdXMiML6tXjJxmiCVVUH26urjmU7ky5RB09PuUPAPTVPDQO0X07YcrV5dkGoWlE36eMvssxw/U4bJWX/ivMG2+mF4yqV/HDhhpZZzhWVlAfPRxnQxdvG4MMje+HZSPEvxu+Fk5Zf2g6HQd9YfzvvC11InIEevNy0hrRGIBITdW3vIp3GziKvKRX1cZoDUo9zvdcHcp/VV/fkVULgVSEHXTouDOwnD0qqkdaa9v0U7qOQH5CmMoTelY/XpjddvMEe2LAHhsfaosL5Lu9QAW2ppZEthMq1xY9aYrkueG/grydHyfwDJtHEZ6Eb7Y4UTBo4OTggfwGSU7A8jrE1cBqcmlUAbv02ElR2iARCOQfcJokBN2UILe8y1viSK3/up12TrrFGTOIuGTwVrWBXClONJ0h5ZEVVgwGFE3jpkDsCJyl8utvdjUMmrg1phrTaR2FfQ+WfnI2GszyQMizKToVmzHHr4mDZHliw63rogyjQlnh9gf5iDz9WYXwz6BcvcrcGaBBuBW1H9GkZJW5QgBoPFchVo5lAXGnywu/VKMKkkJHZg0KTG1QqY8+A+dBwrSW//nHGJqYRf4elBCpW4g3NNbvBIc2rwX3+sKNjfdvTvrrJy4WPuZcLum83c+bRXhxA8gkTUepUZewYl7YwV8WQlGMBuiqkB0X/tPlg=
+  app: trivia-gamemaster
+  skip_cleanup: true
