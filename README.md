@@ -47,8 +47,7 @@ https://github.com/tarynmartin/trivia-gamemaster
 In terminal, go to the project directory and run 'npm start' to open the project in the browser. Have fun creating a trivia game!
 
 ### Live version
-Coming soon!
-<!-- [text](link) -->
+[Deployed Site](https://trivia-deploy.herokuapp.com/)
 
 ## Functionality
 
